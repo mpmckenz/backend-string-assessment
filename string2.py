@@ -16,11 +16,13 @@
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
 
-
 def verbing(s):
-    """Your code goes here.  Edit this docstring."""
-    return
-
+    if len(s) < 3:
+        return s
+    if s[-3:] == "ing":
+        return s + "ly"
+    if len(s) >= 3:
+        return s + "ing"
 
 # E. not_bad
 # Given a string, find the first appearance of the
@@ -30,9 +32,14 @@ def verbing(s):
 # Return the resulting string.
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
+
 def not_bad(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+    i_not = s.find("not")
+    i_bad = s.find("bad")
+    if i_not < i_bad:
+        return s.replace(s[i_not:i_bad+3], "good")
+    else:
+        return s
 
 
 # F. front_back
@@ -42,9 +49,21 @@ def not_bad(s):
 # e.g. 'abcde', the front half is 'abc', the back half 'de'.
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
+
 def front_back(a, b):
-    """Your code goes here.  Edit this docstring."""
-    return
+    split_half = lambda string : len(string) / 2
+    if len(a) % 2:
+        split_half(a) + 1
+    if len(b) % 2:
+        split_half(b) + 1
+    return a[:split_half(a)] + b[:split_half(b)] + a[split_half(a):] + b[split_half(b):]
+    # half_a = len(a) / 2
+    # half_b = len(b) / 2
+    # if len(a) % 2:
+    #     half_a + 1
+    # if len(b) % 2:
+    #     half_b + 1
+    # return a[:half_a] + b[:half_b] + a[half_a:] + b[half_b:]
 
 
 # Provided simple test() function used in main() to print
