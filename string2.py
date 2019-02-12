@@ -51,19 +51,20 @@ def not_bad(s):
 #  a-front + b-front + a-back + b-back
 
 def front_back(a, b):
-    split_half = lambda string : len(string) / 2
-    if len(a) % 2:
-        split_half(a) + 1
-    if len(b) % 2:
-        split_half(b) + 1
-    return a[:split_half(a)] + b[:split_half(b)] + a[split_half(a):] + b[split_half(b):]
-    # half_a = len(a) / 2
-    # half_b = len(b) / 2
+    print a, b
+    # split_half = lambda string : len(string) / 2
     # if len(a) % 2:
-    #     half_a + 1
+    #     split_half(a) + 1
     # if len(b) % 2:
-    #     half_b + 1
-    # return a[:half_a] + b[:half_b] + a[half_a:] + b[half_b:]
+    #     split_half(b) + 1
+    # return a[:split_half(a)] + b[:split_half(b)] + a[split_half(a):] + b[split_half(b):]
+    half_a = len(a) / 2
+    half_b = len(b) / 2
+    if len(a) % 2:
+        half_a = half_a + 1
+    if len(b) % 2:
+        half_b = half_b + 1
+    return a[:half_a] + b[:half_b] + a[half_a:] + b[half_b:]
 
 
 # Provided simple test() function used in main() to print

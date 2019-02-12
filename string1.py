@@ -26,9 +26,10 @@
 
 def donuts(count):
     if count < 10:
-        return "Number of donuts: {}".format(count)
+        str(count)
     else:
-        return "Number of donuts: many"
+        count = "many"
+    return "Number of donuts: {}".format(count)
 
 
 # B. both_ends
@@ -39,9 +40,8 @@ def donuts(count):
 
 def both_ends(s):
     if len(s) > 2:
-        return s[0:2] + s[-2:]
-    else:
-        return ""
+        return s[:2] + s[-2:]
+    return ""
 
 
 # C. fix_start
@@ -55,10 +55,7 @@ def both_ends(s):
 # where all instances of stra have been replaced by strb.
 
 def fix_start(s):
-    duck = s[0]
-    if len(s) > 1:
-        for letter in s:
-            return s[0] + s[1:].replace(duck, "*")
+    return s[0] + s[1:].replace(s[0], "*")
 
 
 # D. MixUp
